@@ -9,6 +9,7 @@ body {
 }
 
 /* Navbar styling */
+
 h2 {
     font-size: 1.8rem;
     background-color: white;
@@ -45,4 +46,15 @@ h2 {
     border-radius: 5px;
     padding: .1rem;
     
+}
+
+/* Shop item styling */
+
+.shop {
+    display: grid;
+    grid-template-columns: repeat(4, 223px);
+}
+
+.item {
+    border: 3px solid #fcbf49;
 }
