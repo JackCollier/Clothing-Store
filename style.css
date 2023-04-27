@@ -7,3 +7,42 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+/* Navbar styling */
+h2 {
+    font-size: 1.8rem;
+    background-color: white;
+    border-radius: 5px;
+    padding: .01rem 1rem;
+}
+
+.navbar {
+    background-color: #fcbf49;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 1rem;
+}
+
+.cart {
+    color: black;
+    padding: .15rem .55em;
+    font-size: 1.1rem;
+    position: relative;
+    font-size: 1.8rem;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.cartAmount {
+    background-color: red;
+    color: white;
+    position: absolute;
+    top: -10px;
+    right: -1px;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    padding: .1rem;
+    
+}
