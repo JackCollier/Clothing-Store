@@ -70,7 +70,10 @@ let increment = (id) => {
 
 let decrement = (id) => {
   let selectedItem = id;
-  console.log(id);
+  let search = basket.find((x) => x.id === selectedItem.id);
+  if(search.item === 0) return
+  search.item -= 1;
+  console.log(basket);
 };
 
 let update = () => {};
