@@ -65,7 +65,9 @@ let increment = (id) => {
   let search = basket.find((x) => x.id === selectedItem.id);
   /* If basket doesn't cotain selected item, add to array. If it does, increase item by 1 */
   search === undefined ? basket.push({id: selectedItem.id, item: 1 }) : search.item += 1 
-  console.log(basket);
+  
+
+  update(selectedItem.id)
 };
 
 let decrement = (id) => {
@@ -73,7 +75,12 @@ let decrement = (id) => {
   let search = basket.find((x) => x.id === selectedItem.id);
   if(search.item === 0) return
   search.item -= 1;
-  console.log(basket);
+  
+  
+  update(selectedItem.id)
 };
 
-let update = () => {};
+let update = id => {
+    let search = basket.find((x) => x.id === id);
+    document.getElementById(id).innerHTML = search.item
+};
