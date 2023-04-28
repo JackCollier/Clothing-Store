@@ -81,6 +81,10 @@ body {
     gap: .5rem;
 }
 
+i,.cart {
+    cursor: pointer;
+}
+
 /* This can be done better */
 @media (max-width: 1000px) {
     .shop{
