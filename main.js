@@ -29,7 +29,7 @@ let generateShop = () => {
     return shop.innerHTML = shopItemsData.map(x => {
         let {id,name,price,desc,img} = x
         return `
-        <figure class="item">
+        <figure id=product-id-${id} class="item">
                 <img width="220" src="${img}" alt="Store item one">
                 <figcaption class="details" >
                     <h3>${name}</h3>
@@ -38,7 +38,7 @@ let generateShop = () => {
                         <h2>$${price}</h2>
                         <div class="buttons">
                             <i class="bi bi-dash-square-fill"></i>
-                            <div class="quantity">0</div>
+                            <div id=${id} class="quantity">0</div>
                             <i class="bi bi-plus-square-fill"></i>
                         </div>
                     </div>
