@@ -81,6 +81,7 @@ body {
     gap: .5rem;
 }
 
+/* This can be done better */
 @media (max-width: 1000px) {
     .shop{
         grid-template-columns: repeat(2, 223px);
