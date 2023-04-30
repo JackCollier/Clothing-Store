@@ -74,8 +74,11 @@ img{
 
 .item-name {
     font-size: 1.5rem;
-    text-align: center;
     letter-spacing: .1rem;
+}
+
+.item-desc {
+    width: 70%;
 }
 
 .details {
