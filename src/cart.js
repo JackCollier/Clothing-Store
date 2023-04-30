@@ -21,14 +21,20 @@ let generateCartItems = () => {
                <img width="100" src="${search.img}" alt="">
                <div class="details">
                  <div class="title-price-x">
-                    <h4>
+                    <h4 class="title-price">
                        <p>${search.name}</p>
-                       <p>$ ${search.price}</p>
+                       <p class="cart-item-price" >$${search.price}</p>
                     </h4>
                     <i class="bi bi-x-lg"></i>
                  </div>
-                 <div class="cart-buttons"></div>
-                 <h3></h3>
+
+                 <div class="buttons">
+                    <i onclick="decrement(${id})" class="bi bi-dash-square-fill"></i>
+                    <div id=${id} class="quantity">${item}</div>
+                    <i onclick="increment(${id})" class="bi bi-plus-square-fill"></i>
+                </div>
+
+                 <h3>$${item * search.price}</h3>
                </div>
             </div>
             `;
@@ -45,3 +51,37 @@ let generateCartItems = () => {
   }
 };
 generateCartItems();
+
+let increment = (id) => {
+  let selectedItem = id;
+  let search = basket.find((x) => x.id === selectedItem.id);
+  /* If basket doesn't cotain selected item, add to array. If it does, increase item by 1 */
+  search === undefined
+    ? basket.push({ id: selectedItem.id, item: 1 })
+    : (search.item += 1);
+  generateCartItems();
+  update(selectedItem.id);
+  localStorage.setItem("data", JSON.stringify(basket));
+};
+
+let decrement = (id) => {
+  let selectedItem = id;
+  let search = basket.find((x) => x.id === selectedItem.id);
+  if (search === undefined) return;
+  if (search.item === 0) return;
+  search.item -= 1;
+
+  update(selectedItem.id);
+  basket = basket.filter(
+    (x) => x.item !== 0
+  ); /* removes item with quantity 0 from basket */
+  generateCartItems(); /* rerender cards after filter */
+  localStorage.setItem("data", JSON.stringify(basket));
+};
+
+let update = (id) => {
+  let search = basket.find((x) => x.id === id);
+  document.getElementById(id).innerHTML = search.item;
+
+  calculation(search);
+};

@@ -132,3 +132,22 @@ i,.cart {
     border-radius: 5px;
     display: flex;
 }
+
+.title-price-x {
+    width: 195px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cart-item-price {
+    background-color: #fcbf49;
+    border-radius: 4px;
+    padding: 2px 6px;
+}
