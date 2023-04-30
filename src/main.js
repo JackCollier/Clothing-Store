@@ -9,7 +9,7 @@ let generateShop = () => {
         <figure id=product-id-${id} class="item">
                 <img width="420" src="${img}" alt="Store item one">
                 <figcaption class="details" >
-                    <h3>${name}</h3>
+                    <h3 class="item-name" >${name}</h3>
                     <p>${desc}</p>
                     <div class="price-quantity">
                         <h2>$${price}</h2>
