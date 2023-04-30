@@ -81,6 +81,12 @@ img{
     width: 70%;
 }
 
+.item-price {
+    position: absolute;
+    top: -80px; 
+    right: 10px;
+}
+
 .details {
     display: flex;
     flex-direction: column;
@@ -92,6 +98,7 @@ img{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .buttons {
