@@ -10,9 +10,9 @@ let generateShop = () => {
                 <img width="420" src="${img}" alt="Store item one">
                 <figcaption class="details" >
                     <h3 class="item-name" >${name}</h3>
-                    <p>${desc}</p>
+                    <p class="item-desc">${desc}</p>
                     <div class="price-quantity">
-                        <h2>$${price}</h2>
+                        <h2 class="item-price">$${price}</h2>
                         <div class="buttons">
                             <i onclick="decrement(${id})" class="bi bi-dash-square-fill"></i>
                             <div id=${id} class="quantity">
