@@ -69,7 +69,6 @@ let increment = (id) => {
   /* If basket doesn't cotain selected item, add to array. If it does, increase item by 1 */
   search === undefined ? basket.push({id: selectedItem.id, item: 1 }) : search.item += 1 
   
-  
   update(selectedItem.id)
   localStorage.setItem("data", JSON.stringify(basket))  
 };
@@ -82,7 +81,7 @@ let decrement = (id) => {
   search.item -= 1;
   
   update(selectedItem.id)
-  basket = basket.filter(x => x.item !== 0)
+  basket = basket.filter(x => x.item !== 0) /* removes item with quantity 0 from basket */
   localStorage.setItem("data", JSON.stringify(basket)) 
 };
 
