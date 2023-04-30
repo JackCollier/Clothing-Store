@@ -57,7 +57,7 @@ a {
 
 .shop {
     display: grid;
-    grid-template-columns: repeat(4, 223px);
+    grid-template-columns: repeat(4, 423px);
     gap: 2rem;
     justify-content: center;
 }
@@ -90,15 +90,15 @@ i,.cart {
 }
 
 /* This can be done better */
-@media (max-width: 1000px) {
+@media (max-width: 1800px) {
     .shop{
-        grid-template-columns: repeat(2, 223px);
+        grid-template-columns: repeat(2, 423px);
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 870px) {
     .shop{
-        grid-template-columns: repeat(1, 223px);
+        grid-template-columns: repeat(1, 423px);
     }
 }
 

@@ -7,7 +7,7 @@ let generateShop = () => {
       let search = basket.find(x => x.id === id) || []
       return `
         <figure id=product-id-${id} class="item">
-                <img width="220" src="${img}" alt="Store item one">
+                <img width="420" src="${img}" alt="Store item one">
                 <figcaption class="details" >
                     <h3>${name}</h3>
                     <p>${desc}</p>
