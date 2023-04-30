@@ -117,3 +117,18 @@ i,.cart {
     cursor: pointer;
     margin-top: .4rem;
 }
+
+/* Style for shopping cart */
+
+.shopping-cart {
+    display: grid;
+    grid-template-columns: repeat(1, 320px);
+    justify-content: center;
+    gap: .85rem;
+}
+
+.cart-item {
+    border: 2px solid #fcbf49;
+    border-radius: 5px;
+    display: flex;
+}
