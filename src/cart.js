@@ -91,13 +91,15 @@ let removeItem = (id) => {
   let selectedItem = id;
   basket = basket.filter((x) => x.id !== selectedItem.id);
   generateCartItems();
-  totalAmount()
+  totalAmount();
+  calculation()
   localStorage.setItem("data", JSON.stringify(basket));
 };
 
 let clearCart = () => {
     basket = []
     generateCartItems()
+    calculation()
     localStorage.setItem("data", JSON.stringify(basket));
 }
 
