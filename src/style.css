@@ -109,7 +109,7 @@ i,.cart {
     margin-bottom: 1rem;
 }
 
-.homeBtn {
+.homeBtn, .checkout, .removeAll {
     background-color: #fcbf49;
     border: none;
     padding: .3rem;
@@ -150,4 +150,8 @@ i,.cart {
     background-color: #fcbf49;
     border-radius: 4px;
     padding: 2px 6px;
+}
+
+.removeAll {
+    background-color: rgb(250, 40, 40);
 }

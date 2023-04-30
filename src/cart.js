@@ -84,12 +84,14 @@ let update = (id) => {
   document.getElementById(id).innerHTML = search.item;
 
   calculation(search);
+  totalAmount()
 };
 
 let removeItem = (id) => {
   let selectedItem = id;
   basket = basket.filter((x) => x.id !== selectedItem.id);
   generateCartItems();
+  totalAmount()
   localStorage.setItem("data", JSON.stringify(basket));
 };
 
@@ -99,7 +101,12 @@ let totalAmount = () => {
         let {id,item} = x
         let search = shopItemsData.find((y) => y.id === id) || [];
         return item * search.price
-    }).reuce((acc,val)=> acc + val,0)
+    }).reduce((acc,val)=> acc + val,0)
+    label.innerHTML = `
+    <h2>Total Bill : $${amount}</h2>
+    <button class="checkout">Checkout</button>
+    <button onclick="clearCart()" class="removeAll">Clear Cart</button>
+    `;
   } 
   else return;
 };
