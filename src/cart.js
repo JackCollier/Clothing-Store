@@ -87,8 +87,21 @@ let update = (id) => {
 };
 
 let removeItem = (id) => {
-  let selectedItem = id
-  basket = basket.filter(x => x.id !== selectedItem.id)
+  let selectedItem = id;
+  basket = basket.filter((x) => x.id !== selectedItem.id);
   generateCartItems();
-  localStorage.setItem("data", JSON.stringify(basket))
+  localStorage.setItem("data", JSON.stringify(basket));
 };
+
+let totalAmount = () => {
+  if (basket !== 0) {
+    let amount = basket.map(x => {
+        let {id,item} = x
+        let search = shopItemsData.find((y) => y.id === id) || [];
+        return item * search.price
+    }).reuce((acc,val)=> acc + val,0)
+  } 
+  else return;
+};
+
+totalAmount()
