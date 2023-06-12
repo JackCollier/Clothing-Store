@@ -16,14 +16,15 @@ let generateCartItems = () => {
       .map((x) => {
         let { id, item } = x;
         let search = shopItemsData.find((y) => y.id === id) || [];
+        const { name, img, price } = search;
         return `
             <div class="cart-item">
-               <img width="200" src="${search.img}" alt="">
+               <img width="200" src="${img}" alt="">
                <div class="details">
                  <div class="title-price-x">
                     <h4 class="title-price">
-                       <p>${search.name}</p>
-                       <p class="cart-item-price" >$${search.price}</p>
+                       <p>${name}</p>
+                       <p class="cart-item-price" >$${price}</p>
                     </h4>
                     <i onclick="removeItem(${id})" class="bi bi-x-lg"></i>
                  </div>
@@ -34,7 +35,7 @@ let generateCartItems = () => {
                     <i onclick="increment(${id})" class="bi bi-plus-square-fill"></i>
                 </div>
 
-                 <h3>$${item * search.price}</h3>
+                 <h3>$${item * price}</h3>
                </div>
             </div>
             `;
@@ -84,7 +85,7 @@ let update = (id) => {
   document.getElementById(id).innerHTML = search.item;
 
   calculation(search);
-  totalAmount()
+  totalAmount();
 };
 
 let removeItem = (id) => {
@@ -92,31 +93,32 @@ let removeItem = (id) => {
   basket = basket.filter((x) => x.id !== selectedItem.id);
   generateCartItems();
   totalAmount();
-  calculation()
+  calculation();
   localStorage.setItem("data", JSON.stringify(basket));
 };
 
 let clearCart = () => {
-    basket = []
-    generateCartItems()
-    calculation()
-    localStorage.setItem("data", JSON.stringify(basket));
-}
+  basket = [];
+  generateCartItems();
+  calculation();
+  localStorage.setItem("data", JSON.stringify(basket));
+};
 
 let totalAmount = () => {
   if (basket !== 0) {
-    let amount = basket.map(x => {
-        let {id,item} = x
+    let amount = basket
+      .map((x) => {
+        let { id, item } = x;
         let search = shopItemsData.find((y) => y.id === id) || [];
-        return item * search.price
-    }).reduce((acc,val)=> acc + val,0)
+        return item * search.price;
+      })
+      .reduce((acc, val) => acc + val, 0);
     label.innerHTML = `
     <h2>Total Bill : $${amount}</h2>
     <button class="checkout">Checkout</button>
     <button onclick="clearCart()" class="removeAll">Clear Cart</button>
     `;
-  } 
-  else return;
+  } else return;
 };
 
-totalAmount()
+totalAmount();
