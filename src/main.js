@@ -4,7 +4,7 @@ let generateShop = () => {
   return (shop.innerHTML = shopItemsData
     .map((x) => {
       let { id, name, price, desc, img } = x;
-      let search = basket.find(x => x.id === id) || []
+      let search = basket.find((x) => x.id === id) || [];
       return `
         <figure id=product-id-${id} class="item">
                 <img width="420" src="${img}" alt="Store item one">
@@ -34,37 +34,43 @@ generateShop();
 So you don't need to explicitly call document.getElementById(id) inside the increment function, because the id value is passed as an argument in a way that allows it to be used directly as an argument to document.getElementById(). */
 
 let increment = (id) => {
-  let selectedItem = id;
-  let search = basket.find((x) => x.id === selectedItem.id);
+  const selectedItem = id;
+  const search = basket.find((x) => x.id === selectedItem.id);
   /* If basket doesn't cotain selected item, add to array. If it does, increase item by 1 */
-  search === undefined ? basket.push({id: selectedItem.id, item: 1 }) : search.item += 1 
-  
-  update(selectedItem.id)
-  localStorage.setItem("data", JSON.stringify(basket))  
+  search === undefined
+    ? basket.push({ id: selectedItem.id, item: 1 })
+    : (search.item += 1);
+
+  update(selectedItem.id);
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 
 let decrement = (id) => {
-  let selectedItem = id;
-  let search = basket.find((x) => x.id === selectedItem.id);
-  if(search === undefined) return 
-  if(search.item === 0) return
+  const selectedItem = id;
+  const search = basket.find((x) => x.id === selectedItem.id);
+  if (search === undefined) return;
+  if (search.item === 0) return;
   search.item -= 1;
-  
-  update(selectedItem.id)
-  basket = basket.filter(x => x.item !== 0) /* removes item with quantity 0 from basket */
-  localStorage.setItem("data", JSON.stringify(basket)) 
+
+  update(selectedItem.id);
+  basket = basket.filter(
+    (x) => x.item !== 0
+  ); /* removes item with quantity 0 from basket */
+  localStorage.setItem("data", JSON.stringify(basket));
 };
 
-let update = id => {
-    let search = basket.find((x) => x.id === id);
-    document.getElementById(id).innerHTML = search.item
+let update = (id) => {
+  const search = basket.find((x) => x.id === id);
+  document.getElementById(id).innerHTML = search.item;
 
-    calculation(search)
+  calculation(search);
 };
 
-let calculation = x => {
-    let cartAmount = document.getElementById('cartAmount')
-    cartAmount.innerText = basket.map(x => x.item).reduce((acc,val) => acc + val,  0)
-}
+let calculation = (x) => {
+  const cartAmount = document.getElementById("cartAmount");
+  cartAmount.innerText = basket
+    .map((x) => x.item)
+    .reduce((acc, val) => acc + val, 0);
+};
 
-calculation()
+calculation();
